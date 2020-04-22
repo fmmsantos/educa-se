@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+</head>
+
+<body class="login-body login-panel center-logout">
+    <div class="ui-g-12 ui-lg-6 ui-md-12">
+        <div class="ui-g login-panel  ui-fluid">
+            <p-card class="ui-g">
+                <p-header>
+                    <img class="Card" src="../../assets/layout/images/acesso-img.png" alt="california-layout" />
+                </p-header>
+                <div class="ui-g-12 ui-lg-12 ui-md-12 logo-container ">
+                    <span class="logout-texto">Deseja sair do Portal?</span>
+                </div>
+                <p-footer>
+                    <div class="ui-g-12 ui-lg-6 ui-md-6">
+                        <div class="input-wrapper">
+                            <p-button label="Sim" (click)="logout()"></p-button>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-lg-6 ui-md-6">
+                        <div class="input-wrapper">
+                            <p-button label="Não" (click)="noLogout()"></p-button>
+                        </div>
+                    </div>
+                </p-footer>
+            </p-card>
+        </div>
+    </div>
+</body>
+
+</html>

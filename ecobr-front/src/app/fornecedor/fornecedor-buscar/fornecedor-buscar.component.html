@@ -1,0 +1,71 @@
+
+<div class="ui-fluid">
+
+    <div class="card no-margin">
+        <h1>Fornecedores</h1>
+        <div class="ui-g form-group">
+            <div class="ui-g-12 ui-md-2">
+                        <label for="textarea">Código</label>
+                        <input id="input" type="text" pInputText />
+
+            </div>
+            <div class="ui-g-12 ui-md-6">
+                <label for="textarea">Nome</label>
+                <input id="input" type="text" pInputText/>
+            </div>
+            <div class="ui-g-12 ui-md-8" style="padding-top:1em">
+                <p-button label="Adicionar" routerLink="/cadastro"></p-button>
+
+            </div>
+        </div>
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <p-table [value]="fornecedores" [paginator]="true" [rows]="3"
+                [responsive]="true">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th class="col-cod-header">Código</th>
+                            <th>Nome</th>
+
+                            <th>InscEstadual</th>
+                           <th class="col-tel-header">Telefone</th>
+                           <th>Logradouro</th>
+                           <th>Bairro</th>
+                           <th>Cidade</th>
+                           <th>Uf</th>
+                           <th>CNPJ</th>
+                           <th>Ações</th>
+
+
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-fornecedor>
+                        <tr>
+                            <td class="col-cod-content" >{{fornecedor.codigo}} </td>
+                            <td >{{fornecedor.nome}}</td>
+
+                            <td >{{fornecedor.inscEstadual}}</td>
+                            <td class="col-tel-content">{{fornecedor.telefone}}</td>
+                            <td class="col-tel-content">{{fornecedor.logradouro}}</td>
+                            <td class="col-tel-content">{{fornecedor.bairro}}</td>
+                            <td class="col-tel-content">{{fornecedor.cidade}}</td>
+                            <td class="col-tel-content">{{fornecedor.uf}}</td>
+                            <td class="col-cod-content">{{fornecedor.cnpj}}</td>
+                            <td class="col-acoes">
+                                <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
+                                <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+                            </td>
+
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+ </div>
+
+

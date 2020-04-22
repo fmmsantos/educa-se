@@ -1,0 +1,16 @@
+<p-calendar 
+    [monthNavigator]="true" 
+    [yearNavigator]="true"
+    yearRange="1900:2030"  
+    [locale]="pt"
+    [showIcon]="true" 
+    dateFormat="dd/mm/yy"
+    (keyup)="change($event.target.value)"
+    (blur)="change($event.target.value)"
+    (onSelect)="onSelectMethod($event)"
+    (onChange)="onChange($event)"
+    dataType="string"
+     [(ngModel)]="value" 
+     [inputStyle]="{width : '100px'}"
+     >
+</p-calendar>

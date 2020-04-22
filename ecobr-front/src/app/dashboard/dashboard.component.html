@@ -1,0 +1,45 @@
+<div class="dashboard">
+    <div class="ui-g">
+        <div class="ui-g-12 ui-md-12 ui-lg-4">
+            <div class="overview-box monthly-sales">
+                <div class="overview-title">Carteiras</div>
+                <i class="fa fa-arrow-circle-up"></i>
+                <div class="overview-numbers">
+                    <table style="width:100%">
+                        <tr>
+                            <th>Quantidade</th>
+                            <th>Valor Total R$</th> 
+                            <th>Percentual</th>
+                        </tr>
+                    <tr  *ngFor="let item of dashboard.resumo">
+                        <td>{{item.nota != null ? item.nota: 'NULO' }}</td>
+                        <td>{{item.quantidadeAvaliacoes}}</td> 
+                        <td>{{item.percentual}} %</td>
+                    </tr>
+                    </table>
+                </div>
+                <img src="assets/layout/images/icon-sales.png" alt="california-layout" />
+            </div>
+        </div>
+        <div class="ui-g-12 ui-md-12 ui-lg-4">
+            <div class="overview-box monthly-views">
+                <div class="overview-title">Títulos
+                    <i class="fa fa-arrow-circle-down"></i>
+                </div>
+                <div class="overview-numbers">
+                    <strong>{{dashboard.quantidadeDia}}</strong>/Dia</div>
+                <img src="assets/layout/images/icon-views.png" alt="california-layout" />
+            </div>
+        </div>
+        <div class="ui-g-12 ui-md-12 ui-lg-4">
+            <div class="overview-box monthly-users">
+                <div class="overview-title">Negociações
+                    <i class="fa fa-arrow-circle-up"></i>
+                </div>
+                <div class="overview-numbers">
+                    <strong>{{dashboard.quantidadeMes}}</strong>/Mês</div>
+                <img src="assets/layout/images/icon-users.png" alt="california-layout" />
+            </div>
+        </div>
+    </div>
+</div>

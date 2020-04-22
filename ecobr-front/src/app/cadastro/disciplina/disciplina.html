@@ -1,0 +1,97 @@
+<div class="ui-g-12 ui-fluid">
+    <p-toolbar>
+        <div class="ui-toolbar-group-right">
+            <p-button style="float:right" label="Novo" (click)="abrirModalCadastro(true)" icon="fa fa-plus"></p-button>
+            <i class="fa fa-bars ui-toolbar-separator"></i>
+        </div>
+        <div class="ui-toolbar-group-right">
+            <p-button style="float:right" label="Consultar" (click)="abrirModalFiltro()" icon="fa fa-search" ></p-button>
+        </div>
+    </p-toolbar>
+</div>
+
+<div class="ui-g-12">
+    <p-table [value]="registros" [resizableColumns]="true" [responsive]="true" [paginator]="true" [rows]="10"
+        [scrollable]="true" selectionMode="single">
+        <ng-template pTemplate="caption">
+            <div class="ui-helper-clearfix" style="text-align: left">
+               Disciplinas
+                <label style="float:right">{{registros.length}}</label>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+
+            <tr>
+                <th style="width:125px" [pSortableColumn]="'codigo'" >Código<p-sortIcon [field]="'codigo'">
+                    </p-sortIcon>
+                </th>
+
+                <th style="width:125px" [pSortableColumn]="'nome'" >Nome<p-sortIcon [field]="'nome'">
+                    </p-sortIcon>
+                </th>
+
+                <th style="width:125px">Ações</th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-registro>
+            <tr>
+                <td >{{registro.codigo}}</td>
+                <td >{{registro.nome}}</td>
+
+                <td >
+                    <div>
+                        <button class="ui-button-success" style="width:25px; height:25px" pButton title="Editar item"
+                            icon="fa fa-edit" (click)="detalhar(registro)"></button>
+                        &nbsp;
+                        <button class="ui-button-danger" style="width:25px; height:25px" pButton title="Remover item"
+                            icon="fa fa-remove" (click)="remover(registro)"></button>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog header="Filtros" modal="true" [(visible)]="mostrarModalFiltro" [responsive]="true"
+    [contentStyle]="{'max-height':'50%', height:'100px' ,width: '600px' }" [resizable]="true" [maximizable]="true">
+
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 form-group">
+            <div class="ui-g-12 ui-md-1 ui-lg-4">
+                <input #txtCodigo type="text" pInputText placeholder="Código" [(ngModel)]="filtros.codigo">
+            </div>
+            <div class="ui-g-12 ui-md-4 ui-lg-8">
+                <input type="text" pInputText placeholder="Nome" [(ngModel)]="filtros.nome">
+            </div>
+        </div>
+    </div>
+    <p-footer>
+        <button pButton type="button" class="ui-button-success" (click)="aplicarFiltros()" icon="fa fa-check"
+            label="Aplicar"></button>
+    </p-footer>
+</p-dialog>
+<p-dialog appendTo="body" header="Disciplina" modal="false" [(visible)]="mostrarModalCadastro" [responsive]="true"
+[contentStyle]="{'max-height':'150%', height:'100px', width:'500px' }" [resizable]="true" [maximizable]="false">
+
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 form-group">
+
+            <div class="ui-g-12 ui-md-4 ui-lg-8">
+                <label>Nome da Disciplina</label>
+                <input type="text" pInputText [(ngModel)]="registro.nome">
+            </div>
+
+        </div>
+
+    </div>
+    <p-footer>
+        <button pButton type="button" class="ui-button-success" (click)="salvar()" icon="fa fa-save"
+            label="Salvar"></button>
+        <button type="button" pButton icon="fa fa-copy" (click)="limpar()" label="Limpar"></button>
+    </p-footer>
+
+
+</p-dialog>
+
+

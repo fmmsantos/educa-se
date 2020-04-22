@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+.col-tel-content {
+    text-align: right;
+}
+.col-tel-header {
+    width: 120px;
+}
+
+.col-cod-header {
+    width: 80px;
+}
+.col-cod-content{
+    text-align:center;
+}
+
