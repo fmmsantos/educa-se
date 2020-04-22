@@ -7,7 +7,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { Aluno } from './cadastro/aluno/aluno';
 import { BSGuardRoute } from './base/services/BSGuardRoute.service';
 import { Professor} from './cadastro/professor/professor';
-
+import { Turma} from './cadastro/turma/turma';
 
 
 import { DashboardDemoComponent } from './demo/view/dashboarddemo.component';
@@ -33,7 +33,7 @@ export const routes: Routes = [
     { path: 'aluno', component: Aluno },
     { path: 'professor', component: Professor},
     { path: 'disciplina', component: Disciplina},
-    //{ path: 'Turma', component: Turma},
+    { path: 'turma', component: Turma},
 
 
 

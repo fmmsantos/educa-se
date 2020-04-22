@@ -126,6 +126,10 @@ var permissao_1 = require("./corporativo/permissao/permissao");
 /* ej2 */
 var ej2_angular_dropdowns_1 = require("@syncfusion/ej2-angular-dropdowns");
 var sacado_1 = require("./formalizacao/sacado/sacado");
+var aluno_1 = require("./cadastro/aluno/aluno");
+var professor_1 = require("./cadastro/professor/professor");
+var disciplina_1 = require("./cadastro/disciplina/disciplina");
+var turma_1 = require("./cadastro/turma/turma");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -233,7 +237,9 @@ var AppModule = /** @class */ (function () {
                 /** BS Components */
                 bs_loading_component_1.BSLoading, BSFocus_directive_1.BSFocusDirective, bs_grid_component_1.BSGridComponent, bs_date_component_1.BSDateComponent, BSSetarCombo_1.BSSetarCombo,
                 /* Components BS-Business */
-                perfil_1.Perfil, usuario_1.Usuario, pagina_construcao_1.PaginaConstrucao, login_component_1.LoginComponent, dashboard_component_1.DashboardComponent, modulo_1.Modulo, funcionalidade_1.Funcionalidade, permissao_1.Permissao, sacado_1.Sacado,
+                perfil_1.Perfil, usuario_1.Usuario, pagina_construcao_1.PaginaConstrucao, login_component_1.LoginComponent, dashboard_component_1.DashboardComponent, modulo_1.Modulo, funcionalidade_1.Funcionalidade,
+                 permissao_1.Permissao, sacado_1.Sacado,aluno_1.Aluno,professor_1.Professor,disciplina_1.Disciplina,turma_1.Turma
+
             ],
             providers: [
                 {
@@ -249,7 +255,8 @@ var AppModule = /** @class */ (function () {
                 /* BS-SERVICE   */
                 BSMessage_service_1.BSMessage, BSUtils_service_1.BSUtils, BSGuardRoute_service_1.BSGuardRoute, BSArrays_service_1.BSArrays, BSAuth_service_1.BSAuth,
                 /**BS-RESORUCE */
-                BSResource_service_1.BSResource, app_model_services_1.PerfilResource, app_model_services_1.AcessoResource, app_model_services_1.UsuarioResource, app_model_services_1.ModuloResource, app_model_services_1.FuncionalidadeResource, app_model_services_1.PermissaoResource, app_model_services_1.SacadoResource
+                BSResource_service_1.BSResource, app_model_services_1.PerfilResource, app_model_services_1.AcessoResource, app_model_services_1.UsuarioResource, app_model_services_1.ModuloResource, app_model_services_1.FuncionalidadeResource, app_model_services_1.PermissaoResource,
+                 app_model_services_1.SacadoResource,app_model_services_1.AlunoResource, app_model_services_1.ProfessorResource, app_model_services_1.TurmaResource, app_model_services_1.DisciplinaResource
             ],
             bootstrap: [app_component_1.AppComponent]
         })

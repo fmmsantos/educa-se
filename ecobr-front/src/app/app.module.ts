@@ -144,7 +144,7 @@ import { BSSetarCombo } from './base/directive/BSSetarCombo';
 import { Aluno} from './cadastro/aluno/aluno';
 import { Professor} from './cadastro/professor/professor';
 import { Disciplina} from './cadastro/disciplina/disciplina';
-
+import { Turma } from './cadastro/turma/turma';
 
 
 
@@ -357,7 +357,7 @@ import { Disciplina} from './cadastro/disciplina/disciplina';
     BSLoading ,BSFocusDirective, BSGridComponent,BSDateComponent,BSSetarCombo,
 
     /* Components BS-Business */
-   Aluno,Professor,Disciplina,
+   Aluno,Professor,Disciplina,Turma
   ],
 
 
