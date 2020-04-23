@@ -140,7 +140,8 @@ import { BSSetarCombo } from './base/directive/BSSetarCombo';
 
 
 /* ej2 */
-//import { ComboBoxModule } from '@syncfusion/ej2-angular-dropdowns';
+//import { ComboBoxModule } from './ej2-angular-dropdowns/@syncfusion/ej2-angular-dropdowns';
+
 import { Aluno} from './cadastro/aluno/aluno';
 import { Professor} from './cadastro/professor/professor';
 import { Disciplina} from './cadastro/disciplina/disciplina';

@@ -24,8 +24,8 @@ export class Turma implements OnInit {
     registros: any = []
     registro: any = {}
 
-
-   ensino = [
+    ensinoOptions = []
+   ensino:any = [
     {nome: 'Infantil', codigo: 'INFANTIL'},
     {nome: 'Fundamental I', codigo: 'FUND_I'},
     {nome: 'Fundamental II', codigo: 'FUND_II'},
@@ -98,22 +98,11 @@ export class Turma implements OnInit {
     salvar() {
 
         const registro = this.registro
-        if (registro['nome'] == null) {
-            this.bsMessage.avisa('Nome deve ser informado');
-            return
-        }
-        if (registro['dataNascimento'] == null) {
-            this.bsMessage.avisa('Data de Nascimento deve ser informado');
-            return
-        }
-
 
         /*Como no back esta esperando um ENUM, então temos que passar o cdigo o enum */
 
-
-
-
-
+        this.registro['ensino']= this.registro.ensino.codigo;
+        console.log(registro);
 
         if (registro['codigo'] == null) {
             this.professorResource.inserir(registro).subscribe(response => {
@@ -136,7 +125,17 @@ export class Turma implements OnInit {
     detalhar(registro) {
         this.professorResource.detalhar(registro).subscribe(response => {
             this.registro = response
+           // this.registro['ensino']= this.registro.ensino.codigo;
 
+           // this.registro['ensino'] =
+           // this.bsUtils.loadOptionsEnums([{codigo : this.registro['ensino'],nome:this.registro['nome']}])
+
+            this.registro['ensino']= this.bsUtils.setOptions([{codigo
+             : this.registro['ensino'], nome:this.registro['nome']}])
+
+
+
+           console.log(this.registro),
 
 
                 this.abrirModalCadastro(false)
