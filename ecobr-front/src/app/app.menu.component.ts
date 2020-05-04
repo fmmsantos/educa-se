@@ -31,17 +31,17 @@ export class AppMenuComponent implements OnInit {
                     {label: 'Disciplina', icon: 'fa fa-bookmark', routerLink: ['/disciplina']},
                     {label: 'Turma', icon: 'fa fa-users', routerLink: ['/turma']},
 
-
-
                 ]
 
             },
-            {
-                label: 'Registro de Aula', icon: 'fa fa-pencil-square-o',
 
-            },
             {
                 label: 'Diário', icon: 'fa fa-book',
+                items: [
+                    {label: 'Diário', icon: 'fa fa-book', routerLink: ['/diario']},
+                    {label: 'Registro de Aula', icon: 'fa fa-pencil-square-o', routerLink: ['/registro']},
+                ]
+
 
             },
 

@@ -15,7 +15,7 @@
         [scrollable]="true" selectionMode="single">
         <ng-template pTemplate="caption">
             <div class="ui-helper-clearfix" style="text-align: left">
-                Alunos
+               Diarios
                 <label style="float:right">{{registros.length}}</label>
             </div>
         </ng-template>
@@ -26,14 +26,14 @@
                     </p-sortIcon>
                 </th>
 
-                <th style="text-align: left" [pSortableColumn]="'nome'">Nome<p-sortIcon [field]="'nome'">
+                <th style="text-align: left" [pSortableColumn]="'professor.nome'">Professor<p-sortIcon [field]="'professor.nome'">
                     </p-sortIcon>
                 </th>
-                <th style="text-align: left" [pSortableColumn]="'dataEntrada'">Data de Entrada<p-sortIcon [field]="'dataEntrada'">
+                <th style="text-align: left" [pSortableColumn]="'disciplina.nome'">Disciplina<p-sortIcon [field]="'disciplina.nome'">
                     </p-sortIcon>
                 </th>
 
-                <th style="text-align: left" [pSortableColumn]="'status'">Status<p-sortIcon [field]="'status'">
+                <th style="text-align: left" [pSortableColumn]="'ano'">Ano<p-sortIcon [field]="'ano'">
                     </p-sortIcon>
                 </th>
                 <th style="text-align: left" [pSortableColumn]="'turma.nome'">Turma<p-sortIcon
@@ -48,9 +48,9 @@
         <ng-template pTemplate="body" let-registro>
             <tr>
                 <td>{{registro.codigo}}</td>
-                <td>{{registro.nome}}</td>
-                <td>{{registro.dataEntrada | date: 'dd/MM/yyyy'}}</td>
-                <td>{{registro.status}}</td>
+                <td>{{registro.professor.nome}}</td>
+                <td>{{registro.disciplina.nome}}</td>
+                <td>{{registro.ano}}</td>
                 <td >{{registro.turma.nome}}</td>
 
 
@@ -91,41 +91,34 @@
 
     <div class="ui-g ui-fluid">
         <div class="ui-g-12 form-group">
-
-            <div class="ui-g-12 ui-md-4 ui-lg-6">
-                <label>Nome</label>
-                <input type="text" pInputText [(ngModel)]="registro.nome">
-            </div>
-
-            <div class="ui-g-12 ui-md-6 ui-lg-4">
-                <label>Data de Entrada</label>
-
-
-                    <bs-date [(value)]="registro.dataEntrada"></bs-date>
-
-
-
-            </div>
-
-            <div class="ui-g-12 ui-md-4 ui-lg-12" style="width:130px;margin-bottom:6px">
-                <label>Status</label>
-                <div class="ui-g-12">
-                    <p-radioButton value="ATIVO" label="Ativo" [(ngModel)]="registro.status"></p-radioButton>
-                </div>
-                <div class="ui-g-12 ">
-                    <p-radioButton value="INAT" label="Inativo" [(ngModel)]="registro.status"></p-radioButton>
-                </div>
-                <div class="ui-g-12">
-                    <p-radioButton value="REMANEJ" label="Remanejado" [(ngModel)]="registro.status"></p-radioButton>
-                </div>
-
-            </div>
             <div class="ui-g-12 ui-md-4 ui-lg-6">
                 <label>Turma</label>
                 <input type="text" pInputText  [(ngModel)]="registro.turma.nome"
                     [disabled]="true" *ngIf="registro.codigo != null">
                 <p-listbox    #cboTurmas   optionLabel="nome" [options]="turmasOptions"
                     [(ngModel)]="registro.turma" *ngIf="registro.codigo == null" ></p-listbox>
+            </div>
+
+            <div class="ui-g-12 ui-md-4 ui-lg-6">
+                <label>Professor</label>
+                <input type="text" pInputText  [(ngModel)]="registro.professor.nome"
+                    [disabled]="true" *ngIf="registro.codigo != null">
+                <p-listbox    #cboProfessores   optionLabel="nome" [options]="professoesOptions"
+                    [(ngModel)]="registro.professor" *ngIf="registro.codigo == null" ></p-listbox>
+            </div>
+
+            <div class="ui-g-12 ui-md-4 ui-lg-6">
+                <label>Disciplina</label>
+                <input type="text" pInputText  [(ngModel)]="registro.Discplina.nome"
+                    [disabled]="true" *ngIf="registro.codigo != null">
+                <p-listbox    #cboDisciplinas  optionLabel="nome" [options]="disciplinasOptions"
+                    [(ngModel)]="registro.disciplina" *ngIf="registro.codigo == null" ></p-listbox>
+            </div>
+
+
+            <div class="ui-g-12 ui-md-4 ui-lg-6">
+                <label>Ano</label>
+                <input type="text" pInputText [(ngModel)]="registro.ano">
             </div>
         </div>
 
@@ -164,7 +157,5 @@
 
 </p-tabView>
 -->
-
-
 
 

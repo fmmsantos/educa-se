@@ -3,16 +3,14 @@ import { BSUtils } from 'src/app/base/services/BSUtils.service';
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { BreadcrumbService } from '../../breadcrumb.service';
 import { BSMessage } from 'src/app/base/services/BSMessage.service';
-import { AlunoResource, TurmaResource } from 'src/app/model/app-model.services';
+import { DiarioResource, TurmaResource } from 'src/app/model/app-model.services';
 import {  Listbox } from 'primeng/primeng';
 
 
-
-
 @Component({
-    templateUrl: './aluno.html'
+    templateUrl: './diario.html'
 })
-export class Aluno implements OnInit {
+export class Diario implements OnInit {
     @ViewChild('cboTurmas') cboTurmas:Listbox
 
     /**GRID */
@@ -44,14 +42,14 @@ turmasOptions:any[] = [];
     constructor(
         private breadcrumbService: BreadcrumbService,
         private bsMessage: BSMessage,
-        private alunoResource: AlunoResource,
+        private alunoResource: DiarioResource,
         private turmaResource:TurmaResource,
         private bsUtils: BSUtils,
 
     ) {
         this.breadcrumbService.setItems([
             { label: 'Cadastro' },
-            { label: 'Aluno', routerLink: ['/aluno'] }
+            { label: 'Diario', routerLink: ['/diario'] }
         ]);
     }
 

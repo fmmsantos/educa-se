@@ -116,7 +116,7 @@ var usuario_1 = require("./corporativo/usuario/usuario");
 var pagina_construcao_1 = require("./pagina-construcao");
 var app_model_services_1 = require("./model/app-model.services");
 var BSAuthInterceptor_1 = require("./base/services/BSAuthInterceptor");
-var login_component_1 = require("./acesso/login.component");
+//var login_component_1 = require("./acesso/login.component");
 var BSAuth_service_1 = require("./base/services/BSAuth.service");
 var dashboard_component_1 = require("./dashboard/dashboard.component");
 var BSSetarCombo_1 = require("./base/directive/BSSetarCombo");
@@ -237,7 +237,7 @@ var AppModule = /** @class */ (function () {
                 /** BS Components */
                 bs_loading_component_1.BSLoading, BSFocus_directive_1.BSFocusDirective, bs_grid_component_1.BSGridComponent, bs_date_component_1.BSDateComponent, BSSetarCombo_1.BSSetarCombo,
                 /* Components BS-Business */
-                perfil_1.Perfil, usuario_1.Usuario, pagina_construcao_1.PaginaConstrucao, login_component_1.LoginComponent, dashboard_component_1.DashboardComponent, modulo_1.Modulo, funcionalidade_1.Funcionalidade,
+                perfil_1.Perfil, usuario_1.Usuario, pagina_construcao_1.PaginaConstrucao,  dashboard_component_1.DashboardComponent, modulo_1.Modulo, funcionalidade_1.Funcionalidade,
                  permissao_1.Permissao, sacado_1.Sacado,aluno_1.Aluno,professor_1.Professor,disciplina_1.Disciplina,turma_1.Turma
 
             ],

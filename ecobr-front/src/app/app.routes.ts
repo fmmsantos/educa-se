@@ -1,4 +1,5 @@
 
+
 import { Disciplina } from './cadastro/disciplina/disciplina';
 import { FornecedorBuscarComponent } from './fornecedor/fornecedor-buscar/fornecedor-buscar.component';
 import { FornecedorCadastroComponent } from './fornecedor/fornecedor-cadastro/fornecedor-cadastro.component';
@@ -27,7 +28,7 @@ import { DocumentationComponent } from './demo/view/documentation.component';
  */
 export const routes: Routes = [
     { path: '', component: DashboardDemoComponent },
-
+ //   {path: 'login', component: Login},
     { path: 'cadastro', component: FornecedorCadastroComponent },
 
     { path: 'aluno', component: Aluno },

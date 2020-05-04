@@ -158,4 +158,40 @@ export class DisciplinaResource {
   detalhar(data) {
     return this.resoruce.get('disciplinas/detalhar/' + data.codigo);
   }
+
+}
+
+@Injectable()
+export class DiarioResource {
+
+  constructor(private resoruce: BSResource) {
+    resoruce.setPath('api');
+  }
+
+  consultars(pageable) {
+    return this.resoruce.get('diarios/consultar?size=' + pageable.size + '&page=' + pageable.page);
+  }
+
+  consultar(requestPage) {
+    return this.resoruce.post('diarios/consultar', requestPage);
+  }
+
+  listar() {
+    return this.resoruce.get('diarios/listar');
+  }
+
+  inserir(data) {
+    return this.resoruce.post('diarios/inserir', data);
+  }
+ atualizar(data) {
+    return this.resoruce.put('diarios/' + data.codigo + '/atualizar', data);
+  }
+
+  deletar(id) {
+    return this.resoruce.delete('diarios/deletar/' + id.toString());
+  }
+
+  detalhar(data) {
+    return this.resoruce.get('diarios/detalhar/' + data.codigo);
+  }
 }

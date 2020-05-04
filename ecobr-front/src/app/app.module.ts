@@ -1,4 +1,7 @@
 
+
+
+
 import { FornecedoresService } from './fornecedor/fornecedores.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -7,6 +10,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppRoutes } from './app.routes';
+
+
+
 
 //import { ChartsDemoComponent } from './demo/view/chartsdemo.component';
 import { CarService } from './demo/service/carservice';
@@ -129,12 +135,14 @@ import { BSArrays } from './base/services/BSArrays.service';
 /* Components Business */
 
 
-import { AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource } from './model/app-model.services';
+import { AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource } from './model/app-model.services';
 import { AuthInterceptor } from './base/services/BSAuthInterceptor';
 
 import { BSAuth } from './base/services/BSAuth.service';
 
+
 import { BSSetarCombo } from './base/directive/BSSetarCombo';
+//import { AuthService } from '.login/auth.service';
 
 
 
@@ -146,12 +154,15 @@ import { Aluno} from './cadastro/aluno/aluno';
 import { Professor} from './cadastro/professor/professor';
 import { Disciplina} from './cadastro/disciplina/disciplina';
 import { Turma } from './cadastro/turma/turma';
+import { Diario } from './cadastro/diario/diario';
+
 
 
 
 
 @NgModule({
   imports: [
+    ListboxModule,
     BrowserModule,
     FormsModule,
     AppRoutes,
@@ -358,7 +369,7 @@ import { Turma } from './cadastro/turma/turma';
     BSLoading ,BSFocusDirective, BSGridComponent,BSDateComponent,BSSetarCombo,
 
     /* Components BS-Business */
-   Aluno,Professor,Disciplina,Turma
+   Aluno,Professor,Disciplina,Turma,Diario
   ],
 
 
@@ -367,7 +378,9 @@ import { Turma } from './cadastro/turma/turma';
     {
       provide : HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+
       multi   : true,
+
     },
 
 
@@ -382,8 +395,8 @@ import { Turma } from './cadastro/turma/turma';
       BSMessage,BSUtils , BSGuardRoute , BSArrays,BSAuth,
 
       /**BS-RESORUCE */
-      BSResource, AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource
-
+      BSResource, AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource
+      //,AuthService
   ],
   bootstrap: [AppComponent]
 })
