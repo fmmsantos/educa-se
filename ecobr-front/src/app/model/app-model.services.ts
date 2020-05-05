@@ -14,6 +14,41 @@ export class AcessoResource {
 }
 
 
+@Injectable()
+export class UsuarioResource {
+
+  constructor(private resoruce: BSResource) {
+    resoruce.setPath('api');
+  }
+
+  consultars(pageable) {
+    return this.resoruce.get('usuarios/consultar?size=' + pageable.size + '&page=' + pageable.page);
+  }
+
+  consultar(requestPage) {
+    return this.resoruce.post('usuarios/consultar', requestPage);
+  }
+
+  listar() {
+    return this.resoruce.get('usuarios/listar');
+  }
+
+  inserir(data) {
+    return this.resoruce.post('usuarios/inserir', data);
+  }
+ atualizar(data) {
+    return this.resoruce.put('usuarios/' + data.codigo + '/atualizar', data);
+  }
+
+  deletar(id) {
+    return this.resoruce.delete('usuarios/deletar/' + id.toString());
+  }
+
+  detalhar(data) {
+    return this.resoruce.get('usuarios/detalhar/' + data.codigo);
+  }
+}
+
 
 
 

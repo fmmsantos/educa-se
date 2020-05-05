@@ -2,6 +2,7 @@
 
 
 
+
 import { FornecedoresService } from './fornecedor/fornecedores.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -132,10 +133,11 @@ import { BSResource } from './base/services/BSResource.service';
 import { BSUtils } from './base/services/BSUtils.service';
 import { BSArrays } from './base/services/BSArrays.service';
 
+
 /* Components Business */
 
 
-import { AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource } from './model/app-model.services';
+import { AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource,UsuarioResource } from './model/app-model.services';
 import { AuthInterceptor } from './base/services/BSAuthInterceptor';
 
 import { BSAuth } from './base/services/BSAuth.service';
@@ -155,7 +157,7 @@ import { Professor} from './cadastro/professor/professor';
 import { Disciplina} from './cadastro/disciplina/disciplina';
 import { Turma } from './cadastro/turma/turma';
 import { Diario } from './cadastro/diario/diario';
-
+import { Usuario } from './cadastro/usuario/usuario';
 
 
 
@@ -369,7 +371,7 @@ import { Diario } from './cadastro/diario/diario';
     BSLoading ,BSFocusDirective, BSGridComponent,BSDateComponent,BSSetarCombo,
 
     /* Components BS-Business */
-   Aluno,Professor,Disciplina,Turma,Diario
+   Aluno,Professor,Disciplina,Turma,Diario, Usuario
   ],
 
 
@@ -395,7 +397,7 @@ import { Diario } from './cadastro/diario/diario';
       BSMessage,BSUtils , BSGuardRoute , BSArrays,BSAuth,
 
       /**BS-RESORUCE */
-      BSResource, AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource
+      BSResource, AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource,UsuarioResource
       //,AuthService
   ],
   bootstrap: [AppComponent]

@@ -12,6 +12,7 @@ import { Turma} from './cadastro/turma/turma';
 
 
 import { DashboardDemoComponent } from './demo/view/dashboarddemo.component';
+import { Usuario } from './cadastro/usuario/usuario';
 /**
 import { SampleDemoComponent } from './demo/view/sampledemo.component';
 import { FormsDemoComponent } from './demo/view/formsdemo.component';
@@ -31,6 +32,7 @@ export const routes: Routes = [
  //   {path: 'login', component: Login},
     { path: 'cadastro', component: FornecedorCadastroComponent },
 
+    { path: 'usuario', component: Usuario },
     { path: 'aluno', component: Aluno },
     { path: 'professor', component: Professor},
     { path: 'disciplina', component: Disciplina},
