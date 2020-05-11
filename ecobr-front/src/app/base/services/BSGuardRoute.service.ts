@@ -5,19 +5,18 @@ import { Observable } from 'rxjs';
 import { BSAuth } from './BSAuth.service';
 
 @Injectable()
-export class BSGuardRoute
-//implements CanActivate
+export class BSGuardRoute implements CanActivate
 {
 
-    /* constructor(
+     constructor(
         private bsAuth:BSAuth,
          private router:Router, private location:Location) {
     }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-        console.log(this.router)
-        console.log(this.bsAuth.usuario)
-        /* Usuario nao autenticado, redireciona para rota de Login
-        if (this.bsAuth.usuario == null ||  this.bsAuth.usuario === undefined || this.bsAuth.usuario.autenticado === false ){
+      //  console.log(this.router)
+      //  console.log(this.bsAuth.usuario)
+
+        if (this.bsAuth.usuarioAutenticado == null ||  this.bsAuth.usuarioAutenticado === undefined || this.bsAuth.usuarioAutenticado === false ){
             console.log(this.router)
             if (this.router['url'] == '/login' || this.router['url'] == '/' ){
                 this.router.navigate(['/login'])
@@ -26,8 +25,9 @@ export class BSGuardRoute
             }
         }
 
-        if (this.bsAuth.usuario.autenticado !== undefined && this.bsAuth.usuario.autenticado ){
+        if (this.bsAuth.usuarioAutenticado !== undefined && this.bsAuth.usuarioAutenticado ){
             return true
         }
-        return false;*/
+        return false;
+    }
 }

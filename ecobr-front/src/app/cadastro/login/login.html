@@ -1,0 +1,35 @@
+<div class="ui-g login-body">
+    <div class="ui-g-12 ui-lg-6 ui-md-12">
+        <div class="ui-g login-panel  ui-fluid">
+            <div class="ui-g">
+                <p-card>
+
+                    <div class="ui-g-12 ui-lg-12 ui-md-12 logo-container">
+                        <span class="login-summary">Acesso</span>
+                        <div class="login-detail">
+                            <span>Bem-vindo, por favor use o formulário para entrar</span>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-lg-12 ui-md-12">
+                        <div class="input-wrapper">
+                            <label>Usuário</label>
+                            <input type="text" autocomplete="off" class="ui-inputtext ui-widget"
+                                [(ngModel)]="usuario.login">
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-lg-12 ui-md-12">
+                        <div class="input-wrapper">
+                            <label>Senha</label>
+                            <input type="password" autocomplete="off"
+                                class="ui-inputtext ui-widget" [(ngModel)]="usuario.senha">
+                        </div>
+                    </div>
+                    <p-footer>
+                        <p-button label="Login" (click)="logiin()"></p-button>
+                    </p-footer>
+
+                </p-card>
+            </div>
+        </div>
+    </div>
+</div>

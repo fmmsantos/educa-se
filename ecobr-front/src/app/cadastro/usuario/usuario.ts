@@ -24,13 +24,16 @@ export class Usuario implements OnInit {
     registros: any = []
     registro: any = {}
 
-    /* endereco do sacado */
-    endereco: any = {}
-    contato: any = {}
+    tipoUsuarioOptions = []
+    tipoUsuario:any = [
+     {nome: 'Professor', codigo: 'PROFESSOR'},
+     {nome: 'Secretário', codigo: 'SECRETARIO'},
+     {nome: 'Coordenador', codigo: 'COORDENADOR'},
+     {nome: 'Diretor', codigo: 'DIRETOR'}
 
-    /* OPTIONS */
+ ];
 
-    /* tipos endereco */
+
 
     constructor(
         private breadcrumbService: BreadcrumbService,
@@ -100,7 +103,7 @@ export class Usuario implements OnInit {
 
 
         /*Como no back esta esperando um ENUM, então temos que passar o cdigo o enum */
-
+        this.registro['tipoUsuario']= this.registro.tipoUsuario.codigo;
 
         if (registro['codigo'] == null) {
             this.usuarioResource.inserir(registro).subscribe(response => {
@@ -123,6 +126,9 @@ export class Usuario implements OnInit {
     detalhar(registro) {
         this.usuarioResource.detalhar(registro).subscribe(response => {
             this.registro = response
+            this.registro['tipoUsuario']= this.bsUtils.setOptions([{codigo
+                : this.registro['tipoUsuario'], nome:this.registro['nome']}])
+
 
 
 

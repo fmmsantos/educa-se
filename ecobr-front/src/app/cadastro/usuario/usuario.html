@@ -32,6 +32,9 @@
                 <th style="text-align: left" [pSortableColumn]="'email'">email<p-sortIcon [field]="'email'">
                     </p-sortIcon>
                 </th>
+                <th style="text-align: left" [pSortableColumn]="'tipoUsuario'">Tipo<p-sortIcon [field]="'tipoUsuario'">
+                </p-sortIcon>
+            </th>
 
 
 
@@ -44,7 +47,7 @@
                 <td>{{registro.codigo}}</td>
                 <td>{{registro.nome}}</td>
                 <td>{{registro.email}}</td>
-
+                <td>{{registro.tipoUsuario}}</td>
 
                 <td>
                     <div>
@@ -84,9 +87,13 @@
     <div class="ui-g ui-fluid">
         <div class="ui-g-12 form-group">
 
-            <div class="ui-g-12 ui-md-4 ui-lg-8">
+            <div class="ui-g-12 ui-md-4 ui-lg-6">
                 <label>Nome</label>
                 <input type="text" pInputText [(ngModel)]="registro.nome">
+            </div>
+            <div class="ui-g-12 ui-md-4 ui-lg-4">
+                <label>Tipo</label>
+                <p-dropdown [options]="tipoUsuario" optionLabel="nome" [(ngModel)]="registro.tipoUsuario" placeholder="Selecione..."></p-dropdown>
             </div>
 
 

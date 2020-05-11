@@ -9,7 +9,7 @@ export class AcessoResource {
   }
 
   login(data) {
-    return this.resoruce.post('acesso/login/', data);
+    return this.resoruce.post('acesso/login', data);
   }
 }
 

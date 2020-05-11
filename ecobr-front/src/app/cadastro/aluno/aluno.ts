@@ -100,43 +100,52 @@ turmasOptions:any[] = [];
 
 
     salvar() {
-
+        const self = this;
         const registro = this.registro
+        if (registro['nome'] == null) {
+            this.bsMessage.avisa('Nome deve ser informado');
+            return
+        }
 
-
-        if (registro['codigo'] == null) {
+        if (self.registro['codigo'] == null) {
             this.alunoResource.inserir(registro).subscribe(response => {
-                this.fecharModalCadastro();
+                self.bsMessage.informa('Registro salvo com sucesso');
+                self.fecharModalCadastro();
+
 
             });
         } else {
             this.alunoResource.atualizar(registro).subscribe(response => {
                 this.bsMessage.informa('Registro atualizado com sucesso');
-                this.fecharModalCadastro();
+                self.bsMessage.informa('Registro atualizado com sucess');
+                self.fecharModalCadastro();
             });
         }
     }
     limpar() {
+        const self = this
         this.registro = {}
 
 
     }
     detalhar(registro) {
-        this.alunoResource.detalhar(registro).subscribe(response => {
-            this.registro = response
+        const self = this
+        self.alunoResource.detalhar(registro).subscribe(response => {
+           self.registro = response
 
 
              //this.registro['statusAluno']= this.bsUtils.setOptions([{codigo : this.registro['statusAluno'], nome:this.registro['nome']}])
 
 
-                this.abrirModalCadastro(false)
+                self.abrirModalCadastro(false)
         });
     }
     remover(registro) {
-        this.bsMessage.confirmar('Deseja excluir o item selecionado: ' + registro.nome + ' ?', () => {
-            this.alunoResource.deletar(registro.codigo).subscribe(response => {
-                this.bsMessage.informa('Registro excluído com sucesso')
-                this.aplicarFiltros()
+        const self = this
+        self.bsMessage.confirmar('Deseja excluir o item selecioanado: ' +  registro.nome + ' ?', function () {
+            self.alunoResource.deletar(registro.codigo).subscribe(response => {
+                self.bsMessage.informa('Registro excluído com sucesso')
+                self.aplicarFiltros()
             });
         });
     }

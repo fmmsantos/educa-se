@@ -1,4 +1,4 @@
-
+import {Login} from './cadastro/login/login';
 
 import { Disciplina } from './cadastro/disciplina/disciplina';
 import { FornecedorBuscarComponent } from './fornecedor/fornecedor-buscar/fornecedor-buscar.component';
@@ -28,15 +28,15 @@ import { FileDemoComponent } from './demo/view/filedemo.component';
 import { DocumentationComponent } from './demo/view/documentation.component';
  */
 export const routes: Routes = [
-    { path: '', component: DashboardDemoComponent },
- //   {path: 'login', component: Login},
-    { path: 'cadastro', component: FornecedorCadastroComponent },
+    { path: '', component: DashboardDemoComponent, canActivate: [BSGuardRoute]},
+   {path: 'login', component: Login},
+    { path: 'cadastro', component: FornecedorCadastroComponent,canActivate: [BSGuardRoute] },
 
-    { path: 'usuario', component: Usuario },
-    { path: 'aluno', component: Aluno },
-    { path: 'professor', component: Professor},
-    { path: 'disciplina', component: Disciplina},
-    { path: 'turma', component: Turma},
+    { path: 'usuario', component: Usuario,canActivate: [BSGuardRoute] },
+    { path: 'aluno', component: Aluno,canActivate: [BSGuardRoute] },
+    { path: 'professor', component: Professor,canActivate: [BSGuardRoute]},
+    { path: 'disciplina', component: Disciplina,canActivate: [BSGuardRoute]},
+    { path: 'turma', component: Turma,canActivate: [BSGuardRoute]},
 
 
 

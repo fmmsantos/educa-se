@@ -1,3 +1,4 @@
+import { BSAuth } from './base/services/BSAuth.service';
 import {Component, AfterViewInit, ElementRef, Renderer2, ViewChild, OnDestroy} from '@angular/core';
 import {ScrollPanel} from 'primeng/primeng';
 
@@ -44,7 +45,7 @@ export class AppComponent implements AfterViewInit {
 
   @ViewChild('layoutMenuScroller') layoutMenuScrollerViewChild: ScrollPanel;
 
-  constructor(public renderer: Renderer2) {}
+  constructor(public renderer: Renderer2,private auth: BSAuth) {}
 
   ngAfterViewInit() {
     setTimeout(() => {this.layoutMenuScrollerViewChild.moveBar(); }, 100);
@@ -160,4 +161,12 @@ export class AppComponent implements AfterViewInit {
   isOverlay() {
     return this.layoutMode === 'overlay';
   }
+
+  mostrarMenu:boolean=false;
+  ngOnInit(){
+     this.auth.mostrarMenuEmitter.subscribe(
+         mostrar=>this.mostrarMenu=mostrar
+     )
+  }
+
 }

@@ -137,7 +137,7 @@ import { BSArrays } from './base/services/BSArrays.service';
 /* Components Business */
 
 
-import { AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource,UsuarioResource } from './model/app-model.services';
+import { AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource, UsuarioResource, AcessoResource } from './model/app-model.services';
 import { AuthInterceptor } from './base/services/BSAuthInterceptor';
 
 import { BSAuth } from './base/services/BSAuth.service';
@@ -158,6 +158,8 @@ import { Disciplina} from './cadastro/disciplina/disciplina';
 import { Turma } from './cadastro/turma/turma';
 import { Diario } from './cadastro/diario/diario';
 import { Usuario } from './cadastro/usuario/usuario';
+import {Login } from './cadastro/login/login';
+import { Usuarioo } from './cadastro/login/usuarioo';
 
 
 
@@ -309,6 +311,7 @@ import { Usuario } from './cadastro/usuario/usuario';
     TreeTableModule,
     CaptchaModule,
 
+
       /* ej2 */
       //ComboBoxModule
   ],
@@ -324,6 +327,7 @@ import { Usuario } from './cadastro/usuario/usuario';
     AppTopBarComponent,
     AppFooterComponent,
     AppProfileComponent,
+   Usuarioo,
 
     FornecedorCadastroComponent,
     FornecedorBuscarComponent,
@@ -371,7 +375,7 @@ import { Usuario } from './cadastro/usuario/usuario';
     BSLoading ,BSFocusDirective, BSGridComponent,BSDateComponent,BSSetarCombo,
 
     /* Components BS-Business */
-   Aluno,Professor,Disciplina,Turma,Diario, Usuario
+   Aluno,Professor,Disciplina,Turma,Diario, Usuario,Login
   ],
 
 
@@ -397,7 +401,7 @@ import { Usuario } from './cadastro/usuario/usuario';
       BSMessage,BSUtils , BSGuardRoute , BSArrays,BSAuth,
 
       /**BS-RESORUCE */
-      BSResource, AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource,UsuarioResource
+      BSResource, AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource,UsuarioResource, AcessoResource
       //,AuthService
   ],
   bootstrap: [AppComponent]

@@ -1,16 +1,95 @@
 /* You can add global styles to this file, and also import other style files */
-
-.col-tel-content {
-    text-align: right;
-}
-.col-tel-header {
-    width: 120px;
-}
-
-.col-cod-header {
-    width: 80px;
-}
-.col-cod-content{
-    text-align:center;
+/* You can add global styles to this file, and also import other style files */
+body .ui-button {
+    margin-right: .25em;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #295b89
 }
 
+body .ui-dialog .ui-dialog-titlebar {
+    border: 1px solid #d7efff;
+    background-color: #295b89;
+    color: #ffffff;
+    /* padding: 0.571em 1.143em; */
+    font-weight: 900;
+    border-bottom: 0 none;
+}
+.ui-dialog .ui-dialog-titlebar {
+    padding: .9em .75em;
+    position: relative;
+    border: 0;
+}
+body .ui-dialog .ui-dialog-content {
+    background-color: #d6d7d9;
+    color: #212121;
+    border: 1px solid #d6d7d9;
+    padding: 10px;
+}
+
+body .ui-panel .ui-panel-titlebar {
+    /* border: 1px solid #d6d7d9; */
+    padding: 0.571em 1.143em;
+    background-color: #295b89;
+    color: #ffffff;
+    -moz-border-radius-topleft: 0;
+    -webkit-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+    -moz-border-radius-topright: 0;
+    -webkit-border-top-right-radius: 0;
+    border-top-right-radius: 0;
+    -moz-border-radius-bottomleft: 0;
+    -webkit-border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+    -moz-border-radius-bottomright: 0;
+    -webkit-border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+body .ui-panel .ui-panel-content {
+    padding: 1.143em;
+    border: 1px solid #f1f1f1;
+    background-color: #f1f1f1;
+    color: #212121;
+    padding: 5px;
+    border-top: 0 none;
+}
+
+body .pi {
+    font-size: 1.3em;
+}
+
+body .ui-table .ui-table-caption, body .ui-table .ui-table-summary {
+    background-color: #295b89;
+    color: #fff8f8;
+    border: 1px solid #295b89;
+    /* padding: 0.571em 1.143em; */
+    font-weight: 700;
+    text-align: left;
+}
+
+body .ui-table .ui-table-thead > tr > th {
+    padding: 0.286em 0.571em;
+    border: 1px solid #797979;
+    font-weight: 550;
+    color: #212121;
+    background-color: #8989895c;
+}
+
+body .ui-dialog .ui-dialog-footer {
+    background-color:#f1f1f1
+}
+
+.center-logout {
+    margin: auto;
+    width: 100%;
+    padding: 5%;
+    top:10px
+}
+
+.logout-texto {
+    line-height: 48px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}

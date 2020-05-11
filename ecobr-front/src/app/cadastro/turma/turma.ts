@@ -125,13 +125,13 @@ export class Turma implements OnInit {
     detalhar(registro) {
         this.professorResource.detalhar(registro).subscribe(response => {
             this.registro = response
-           // this.registro['ensino']= this.registro.ensino.codigo;
+            this.registro['ensino']= this.registro.ensino.nome ;
 
            // this.registro['ensino'] =
            // this.bsUtils.loadOptionsEnums([{codigo : this.registro['ensino'],nome:this.registro['nome']}])
 
-            this.registro['ensino']= this.bsUtils.setOptions([{codigo
-             : this.registro['ensino'], nome:this.registro['nome']}])
+           // this.registro['ensino']= this.bsUtils.setOptions([{codigo
+          //   : this.registro['ensino'], nome:this.registro['nome']}])
 
 
 
