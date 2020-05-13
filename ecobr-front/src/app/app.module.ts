@@ -1,8 +1,6 @@
 
 
 
-
-
 import { FornecedoresService } from './fornecedor/fornecedores.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -137,7 +135,7 @@ import { BSArrays } from './base/services/BSArrays.service';
 /* Components Business */
 
 
-import { AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource, UsuarioResource, AcessoResource } from './model/app-model.services';
+import { AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource, UsuarioResource, AcessoResource, RegistroAulaResource } from './model/app-model.services';
 import { AuthInterceptor } from './base/services/BSAuthInterceptor';
 
 import { BSAuth } from './base/services/BSAuth.service';
@@ -160,6 +158,9 @@ import { Diario } from './cadastro/diario/diario';
 import { Usuario } from './cadastro/usuario/usuario';
 import {Login } from './cadastro/login/login';
 import { Usuarioo } from './cadastro/login/usuarioo';
+import { ProfessorGuarde } from './guarde/professorGuard';
+import { RegistroAula } from './cadastro/registro_aula/registro';
+
 
 
 
@@ -375,7 +376,7 @@ import { Usuarioo } from './cadastro/login/usuarioo';
     BSLoading ,BSFocusDirective, BSGridComponent,BSDateComponent,BSSetarCombo,
 
     /* Components BS-Business */
-   Aluno,Professor,Disciplina,Turma,Diario, Usuario,Login
+   Aluno,Professor,Disciplina,Turma,Diario, Usuario,Login,RegistroAula
   ],
 
 
@@ -401,7 +402,7 @@ import { Usuarioo } from './cadastro/login/usuarioo';
       BSMessage,BSUtils , BSGuardRoute , BSArrays,BSAuth,
 
       /**BS-RESORUCE */
-      BSResource, AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource,UsuarioResource, AcessoResource
+      BSResource, AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource,UsuarioResource, AcessoResource,ProfessorGuarde,RegistroAulaResource
       //,AuthService
   ],
   bootstrap: [AppComponent]

@@ -6,4 +6,7 @@ import { Component } from "@angular/core";
 export class Usuarioo{
     nome:string;
     senha:string;
+    tipoUsuario:string;
+
+
 }

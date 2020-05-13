@@ -1,3 +1,4 @@
+import { Professor } from './cadastro/professor/professor';
 import { BSAuth } from './base/services/BSAuth.service';
 import {Component, AfterViewInit, ElementRef, Renderer2, ViewChild, OnDestroy} from '@angular/core';
 import {ScrollPanel} from 'primeng/primeng';
@@ -81,6 +82,8 @@ export class AppComponent implements AfterViewInit {
     this.menuClick = true;
     this.topbarMenuActive = false;
 
+
+
     if (this.layoutMode === 'overlay') {
       this.overlayMenuActive = !this.overlayMenuActive;
     } else {
@@ -95,6 +98,7 @@ export class AppComponent implements AfterViewInit {
   onMenuClick($event) {
     this.menuClick = true;
     this.resetMenu = false;
+   // this.auth.temPermissao();
   }
 
   onTopbarMenuButtonClick(event) {

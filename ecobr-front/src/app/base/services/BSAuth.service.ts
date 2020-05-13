@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class BSAuth {
+    public tipoUsuario:Usuarioo;
 
    // public usuario =  { nome: '', login: ''}
     constructor( private http:HttpClient,
@@ -27,15 +28,28 @@ export class BSAuth {
          usuarioAutenticado : boolean = false;
         mostrarMenuEmitter = new EventEmitter<boolean>();
 
+
         fazerLogin(usuario: Usuarioo) {
             return this.acessoResource.login(usuario).toPromise()
                 .then(data => {
                     this.usuarioAutenticado = true;
                     this.mostrarMenuEmitter.emit(true);
+
                     this.router.navigate(['/']);
+                   // this.temPermissao();
                     return data;
                 });
         }
+        usuarioEstaAutenticado(){
+            return this.usuarioAutenticado;
+
+        }
+
+
+
+
+    }
+
 
 
     /*    autenticar(usuario:Usuario,usuario2:Usuario){
@@ -58,7 +72,7 @@ export class BSAuth {
 
 
 
-        }
+
 
 
 

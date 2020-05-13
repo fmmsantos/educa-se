@@ -1,0 +1,74 @@
+<div class="ui-g-12 ui-fluid">
+    <p-toolbar>
+        <div class="ui-toolbar-group-right">
+            <p-button style="float:right" label="Novo" (click)="abrirModalCadastro(true)" icon="fa fa-plus"></p-button>
+            <i class="fa fa-bars ui-toolbar-separator"></i>
+        </div>
+        <div class="ui-toolbar-group-right">
+            <p-button style="float:right" label="Salvar" (click)="abrirModalFiltro()" icon="fa fa-save"></p-button>
+            <i class="fa fa-bars ui-toolbar-separator"></i>
+        </div>
+        <div class="ui-toolbar-group-right">
+            <p-button style="float:right" label="Limpar" (click)="abrirModalFiltro()" icon="fa fa-copy" ></p-button>
+        </div>
+    </p-toolbar>
+
+
+
+
+    <div class="ui-g-12 ui-lg-12 ui-md-12" style="height:250px ">
+        <p-panel header="Cadastro de Aula">
+            <div class="ui-g ui-fluid" style="height:150px ">
+                <div class="ui-g-6 form-group">
+
+                    <div class="ui-g-6 ui-md-6 ui-lg-4">
+                        <label>Turma</label>
+                        <p-dropdown [options]="turma" optionLabel="nome" [(ngModel)]="registro.turma"
+                            placeholder="Selecione..."></p-dropdown>
+                    </div>
+                    <div class="ui-g-6 ui-md-6 ui-lg-4">
+                        <label>Disciplina</label>
+                        <p-dropdown [options]="disciplina" optionLabel="nome" [(ngModel)]="registro.disciplina"
+                            placeholder="Selecione..."></p-dropdown>
+                    </div>
+
+                    <div class="ui-g-6 ui-md-6 ui-lg-4">
+                        <label>Bimestre</label>
+                        <p-dropdown [options]="disciplina" optionLabel="nome" [(ngModel)]="registro.bimestre"
+                            placeholder="Selecione..."></p-dropdown>
+                    </div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-4">
+                        <label>Data </label>
+
+
+                            <bs-date [(value)]="registro.data"></bs-date>
+
+
+
+                    </div>
+
+
+                    <div class="ui-g-6 ui-md-4 ui-lg-8">
+                        <label>Conteúdo Lecionado</label>
+                        <input type="text" pInputText [(ngModel)]="registro.serie">
+                    </div>
+
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+            <p-footer >
+                <p-button  label="Registrar Frequência" (click)="logiin()"></p-button>
+            </p-footer>
+
+        </p-panel>
+    </div>
+
+
+</div>

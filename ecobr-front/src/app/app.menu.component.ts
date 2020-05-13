@@ -1,7 +1,9 @@
+import { Usuarioo } from 'src/app/cadastro/login/usuarioo';
 import {Component, Input, OnInit} from '@angular/core';
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import {MenuItem} from 'primeng/primeng';
 import {AppComponent} from './app.component';
+import { DISABLED } from '@angular/forms/src/model';
 
 @Component({
     selector: 'app-menu',
@@ -16,6 +18,7 @@ export class AppMenuComponent implements OnInit {
 
     model: any[];
 
+
     constructor(public app: AppComponent) {}
 
     ngOnInit() {
@@ -23,10 +26,10 @@ export class AppMenuComponent implements OnInit {
             {label: 'Início', icon: 'fa fa-fw fa-home', routerLink: ['/']},
 
             {
-                label: 'Cadastros', icon: 'fa fa-address-book-o',
+                label: 'Cadastros' , icon: 'fa fa-address-book-o',
                 items: [
                     {label: 'Usuário', icon: 'fa fa-user-circle-o', routerLink: ['/usuario']},
-                    {label: 'Aluno', icon: 'fa fa-user', routerLink: ['/aluno']},
+                    {label: 'Aluno', icon: 'fa fa-user', routerLink: ['/aluno'],},
                     {label: 'Professor', icon: 'fa fa-graduation-cap', routerLink: ['/professor']},
                     {label: 'Disciplina', icon: 'fa fa-bookmark', routerLink: ['/disciplina']},
                     {label: 'Turma', icon: 'fa fa-users', routerLink: ['/turma']},
@@ -38,7 +41,7 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'Diário', icon: 'fa fa-book',
                 items: [
-                    {label: 'Diário', icon: 'fa fa-book', routerLink: ['/diario']},
+
                     {label: 'Registro de Aula', icon: 'fa fa-pencil-square-o', routerLink: ['/registro']},
                 ]
 
