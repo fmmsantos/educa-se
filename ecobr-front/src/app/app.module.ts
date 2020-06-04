@@ -1,6 +1,8 @@
 
 
 
+
+
 import { FornecedoresService } from './fornecedor/fornecedores.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -92,6 +94,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { TooltipModule } from 'primeng/tooltip';
 import { TreeModule } from 'primeng/tree';
 import { TreeTableModule } from 'primeng/treetable';
+import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
 
 import { AppComponent } from './app.component';
 import { AppRightPanelComponent } from './app.rightpanel.component';
@@ -135,7 +138,7 @@ import { BSArrays } from './base/services/BSArrays.service';
 /* Components Business */
 
 
-import { AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource, UsuarioResource, AcessoResource, RegistroAulaResource } from './model/app-model.services';
+import { AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource, UsuarioResource, AcessoResource, RegistroAulaResource, FrequenciaAulaResource } from './model/app-model.services';
 import { AuthInterceptor } from './base/services/BSAuthInterceptor';
 
 import { BSAuth } from './base/services/BSAuth.service';
@@ -311,6 +314,7 @@ import { RegistroAula } from './cadastro/registro_aula/registro';
     TreeModule,
     TreeTableModule,
     CaptchaModule,
+    TriStateCheckboxModule
 
 
       /* ej2 */
@@ -403,6 +407,7 @@ import { RegistroAula } from './cadastro/registro_aula/registro';
 
       /**BS-RESORUCE */
       BSResource, AlunoResource, ProfessorResource, DisciplinaResource, TurmaResource, DiarioResource,UsuarioResource, AcessoResource,ProfessorGuarde,RegistroAulaResource
+      ,FrequenciaAulaResource
       //,AuthService
   ],
   bootstrap: [AppComponent]

@@ -124,8 +124,8 @@
                 <label>Turma</label>
                 <input type="text" pInputText  [(ngModel)]="registro.turma.nome"
                     [disabled]="true" *ngIf="registro.codigo != null">
-                <p-listbox    #cboTurmas   optionLabel="nome" [options]="turmasOptions"
-                    [(ngModel)]="registro.turma" *ngIf="registro.codigo == null" ></p-listbox>
+                <p-dropdown  #cboTurmas   optionLabel="nome" [options]="turmasOptions"
+                    [(ngModel)]="registro.turma" *ngIf="registro.codigo == null" placeholder="Selecione..."></p-dropdown>
             </div>
         </div>
 

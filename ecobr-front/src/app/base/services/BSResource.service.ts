@@ -1,3 +1,4 @@
+
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BSResponse } from '../domain/BSResponse';
@@ -49,7 +50,7 @@ export class BSResource {
     }
   }
 
-  
+
 
   post(method, data) {
     return this.http.post<BSResponse>(this.path + method, data).pipe(
@@ -67,6 +68,7 @@ export class BSResource {
       })
     );
   }
+
 
   put(method, data) {
     return this.http.put<BSResponse>(this.path + method, data).pipe(

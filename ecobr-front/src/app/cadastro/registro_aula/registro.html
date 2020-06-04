@@ -5,70 +5,104 @@
             <i class="fa fa-bars ui-toolbar-separator"></i>
         </div>
         <div class="ui-toolbar-group-right">
-            <p-button style="float:right" label="Salvar" (click)="abrirModalFiltro()" icon="fa fa-save"></p-button>
+            <p-button style="float:right" label="Salvar" (click)="salvar()" icon="fa fa-save"></p-button>
             <i class="fa fa-bars ui-toolbar-separator"></i>
         </div>
         <div class="ui-toolbar-group-right">
-            <p-button style="float:right" label="Limpar" (click)="abrirModalFiltro()" icon="fa fa-copy" ></p-button>
+            <p-button style="float:right" label="SalvarF" (click)="salvarFrequencia()" icon="fa fa-save"></p-button>
+            <i class="fa fa-bars ui-toolbar-separator"></i>
+        </div>
+        <div class="ui-toolbar-group-right">
+            <p-button style="float:right" label="Limpar" (click)="limpar()" icon="fa fa-copy"></p-button>
         </div>
     </p-toolbar>
+</div>
+<div class="ui-g-12 ui-lg-12 ui-md-12" style="height:250px ">
 
+    <div class="ui-g ui-fluid" style="height:150px ">
+        <div class="ui-g-6 form-group">
 
+            <div class="ui-g-6 ui-md-6 ui-lg-4">
+                <label>Turma</label>
 
-
-    <div class="ui-g-12 ui-lg-12 ui-md-12" style="height:250px ">
-        <p-panel header="Cadastro de Aula">
-            <div class="ui-g ui-fluid" style="height:150px ">
-                <div class="ui-g-6 form-group">
-
-                    <div class="ui-g-6 ui-md-6 ui-lg-4">
-                        <label>Turma</label>
-                        <p-dropdown [options]="turma" optionLabel="nome" [(ngModel)]="registro.turma"
-                            placeholder="Selecione..."></p-dropdown>
-                    </div>
-                    <div class="ui-g-6 ui-md-6 ui-lg-4">
-                        <label>Disciplina</label>
-                        <p-dropdown [options]="disciplina" optionLabel="nome" [(ngModel)]="registro.disciplina"
-                            placeholder="Selecione..."></p-dropdown>
-                    </div>
-
-                    <div class="ui-g-6 ui-md-6 ui-lg-4">
-                        <label>Bimestre</label>
-                        <p-dropdown [options]="disciplina" optionLabel="nome" [(ngModel)]="registro.bimestre"
-                            placeholder="Selecione..."></p-dropdown>
-                    </div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-4">
-                        <label>Data </label>
-
-
-                            <bs-date [(value)]="registro.data"></bs-date>
-
-
-
-                    </div>
-
-
-                    <div class="ui-g-6 ui-md-4 ui-lg-8">
-                        <label>Conteúdo Lecionado</label>
-                        <input type="text" pInputText [(ngModel)]="registro.serie">
-                    </div>
-
-
-
-
-
-
-
-                </div>
-
+                <input type="text" pInputText [(ngModel)]="registro.turma.nome" [disabled]="true"
+                    *ngIf="registro.codigo != null">
+                <p-dropdown #cboTurmas optionLabel="nome" [options]="turmasOptions" [(ngModel)]="registro.turma"
+                    *ngIf="registro.codigo == null" placeholder="Selecione..."></p-dropdown>
 
             </div>
-            <p-footer >
-                <p-button  label="Registrar Frequência" (click)="logiin()"></p-button>
-            </p-footer>
 
-        </p-panel>
+
+            <div class="ui-g-6 ui-md-6 ui-lg-4">
+                <label>Disciplina</label>
+                <input type="text" pInputText [(ngModel)]="registro.disciplina.nome" [disabled]="true"
+                    *ngIf="registro.codigo != null">
+                <p-dropdown #cboDisciplinas optionLabel="nome" [options]="disciplinasOptions"
+                    [(ngModel)]="registro.disciplina " *ngIf="registro.codigo == null" placeholder="Selecione...">
+                </p-dropdown>
+
+            </div>
+
+            <div class="ui-g-6 ui-md-6 ui-lg-4">
+                <label>Bimestre</label>
+                <p-dropdown [options]="bimestre" optionLabel="nome" [(ngModel)]="registro.bimestre"
+                    placeholder="Selecione..."></p-dropdown>
+            </div>
+            <div class="ui-g-12 ui-md-6 ui-lg-4">
+                <label>Data </label>
+                <bs-date [(value)]="registro.data"></bs-date>
+            </div>
+
+
+            <div class="ui-g-6 ui-md-4 ui-lg-8">
+                <label>Conteúdo Lecionado</label>
+                <input type="text" pInputText [(ngModel)]="registro.conteudoLecionado">
+            </div>
+        </div>
     </div>
+    <p-footer>
+        <p-button  [disabled]="false" *ngIf="botaoSalvo != false " label="Registrar Frequência" (click)="buscarAluno()"></p-button>
+    </p-footer>
+
+</div>
+
+<div class="ui-g-12">
+    <p-table [value]="alunosFrequenciaAula" [resizableColumns]="true" [responsive]="true" [paginator]="true" [rows]="10"
+        [scrollable]="true" selectionMode="single">
+        <ng-template pTemplate="caption">
+            <div class="ui-helper-clearfix" style="text-align: left">
+                Alunos
+                <label style="float:right">{{alunosFrequenciaAula.length}}</label>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+
+            <tr>
 
 
+                <th style="text-align: left" [pSortableColumn]="'nomeAluno'" [(ngModel)]="registro.aluno.nome">Nome<p-sortIcon [field]="'nomeAluno'" >
+                    </p-sortIcon>
+                </th>
+                <th style="text-align: left" [pSortableColumn]="'presenca'" [(ngModel)]="registro.presenca">Presença<p-sortIcon [field]="'presenca'">
+                    </p-sortIcon>
+                </th>
+
+                <th style="text-align: left" [pSortableColumn]="'qtdFaltasBimestre'" [(ngModel)]="registro.quantFaltaBimestre">Falta no Bimestre<p-sortIcon
+                        [field]="'qtdFaltasBimestre'">
+                    </p-sortIcon>
+                </th>
+
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-registro>
+            <tr>
+                <td>{{registro.nomeAluno}}</td>
+                <td >
+                    <p-triStateCheckbox [(ngModel)]="registro.presenca"></p-triStateCheckbox>
+                </td>
+                <td>{{registro.qtdFaltasBimestre}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>

@@ -104,7 +104,8 @@
 
             <div class="ui-g-12 ui-md-4 ui-lg-6">
                 <label>Senha</label>
-                <input type="password" pPassword  [(ngModel)]="registro.senha">
+                <input type="password" pPassword  [(ngModel)]="registro.senha" [disabled]="true"
+                *ngIf="registro.codigo != null" >
             </div>
 
         </div>

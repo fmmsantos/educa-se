@@ -121,7 +121,10 @@ export class TurmaResource {
   detalhar(data) {
     return this.resoruce.get('turmas/detalhar/' + data.codigo);
   }
+
+
 }
+
 
 
 @Injectable()
@@ -264,5 +267,43 @@ export class RegistroAulaResource {
 
   detalhar(data) {
     return this.resoruce.get('registros/detalhar/' + data.codigo);
+  }
+}
+@Injectable()
+export class FrequenciaAulaResource {
+
+  constructor(private resoruce: BSResource) {
+    resoruce.setPath('api');
+  }
+
+  consultars(pageable) {
+    return this.resoruce.get('frequencias/consultar?size=' + pageable.size + '&page=' + pageable.page);
+  }
+
+  consultar(requestPage) {
+    return this.resoruce.post('frequencias/consultar', requestPage);
+  }
+
+  listar() {
+    return this.resoruce.get('frequencias/listar');
+  }
+
+  inserir(data) {
+    return this.resoruce.post('frequencias/inserir', data);
+  }
+ atualizar(data) {
+    return this.resoruce.put('frequencias/' + data.codigo + '/atualizar', data);
+  }
+
+  deletar(id) {
+    return this.resoruce.delete('frequencias/deletar/' + id.toString());
+  }
+
+  detalhar(data) {
+    return this.resoruce.get('frequencias/detalhar/' + data.codigo);
+  }
+
+  listarAlunosByTurma(idTurma) {
+      return this.resoruce.get('frequencias/listarAlunosByTurma?idTurma=' + idTurma);
   }
 }
