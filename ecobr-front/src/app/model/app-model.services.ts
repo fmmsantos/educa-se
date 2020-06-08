@@ -288,8 +288,8 @@ export class FrequenciaAulaResource {
     return this.resoruce.get('frequencias/listar');
   }
 
-  inserir(data) {
-    return this.resoruce.post('frequencias/inserir', data);
+  gravarFrequencias(data) {
+    return this.resoruce.post('frequencias/gravarFrequencias', data);
   }
  atualizar(data) {
     return this.resoruce.put('frequencias/' + data.codigo + '/atualizar', data);

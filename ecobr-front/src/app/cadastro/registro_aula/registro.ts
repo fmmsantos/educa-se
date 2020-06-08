@@ -26,6 +26,7 @@ export class RegistroAula implements OnInit {
     // grida alunos
     alunosFrequenciaAula : any[] = [];
 
+
     /* Controle Formulario */
     filtros: any = {}
     mostrarModalFiltro: boolean
@@ -94,12 +95,38 @@ export class RegistroAula implements OnInit {
         });
     }
     mostrar:boolean = false
+    mostrarBotaoSalvar:boolean=true;
     buscarAluno(){
         //this.mostrarModalFiltro = false
         const idTurma = this.registro.turma && this.registro.turma.codigo
         this.frequenciaAulaResource.listarAlunosByTurma(idTurma).subscribe(response => {
             this.alunosFrequenciaAula = response as any as any[];
+          this.mostrarBotaoSalvar=false;
         });
+
+    }
+    salvarFrequencias() {
+
+
+        const idRegistroAula = this.registro.registroAula && this.registro.registroAula.codigo
+       // const idAluno = this.registro.aluno && this.registro.aluno.codigo
+        if (this.alunosFrequenciaAula['codigo'] == null) {
+            this.frequenciaAulaResource.gravarFrequencias(this.alunosFrequenciaAula).subscribe(response => {
+             this.alunosFrequenciaAula = response as any as any[];
+
+                this.bsMessage.informa('Registro salvo com sucesso');
+
+
+            });
+        } else {
+            this.frequenciaAulaResource.gravarFrequencias(this.alunosFrequenciaAula).subscribe(response => {
+                //this.alunosFrequenciaAula = response as any as any[];
+                this.bsMessage.informa('Registro atualizado com sucesso');
+                //this.fecharModalCadastro();
+               // this.registroSalvo=false;
+               // this.limpar();
+            });
+        }
     }
 
     abrirModalFiltro() {
@@ -150,28 +177,7 @@ botaoSalvo = false
             });
         }
     }
-    salvarFrequencia() {
 
-        const registro = this.registro
-
-        if (registro['codigo'] == null) {
-            this.frequenciaAulaResource.inserir(registro).subscribe(response => {
-                this.bsMessage.informa('Registro salvo com sucesso');
-                //this.fecharModalCadastro();
-               // this.registroSalvo=false;
-                //this.limpar();
-                //this.botaoSalvo=true
-
-            });
-        } else {
-            this.registroResource.atualizar(registro).subscribe(response => {
-                this.bsMessage.informa('Registro atualizado com sucesso');
-                //this.fecharModalCadastro();
-               // this.registroSalvo=false;
-               // this.limpar();
-            });
-        }
-    }
 
     limpar() {
         this.registro = {}

@@ -1,15 +1,16 @@
 <div class="ui-g-12 ui-fluid">
     <p-toolbar>
+
+        <div class="ui-toolbar-group-right">
+            <p-button style="float:right" label="Salvar" [disabled]="false" *ngIf="mostrarBotaoSalvar != false " (click)="salvar()" icon="fa fa-save"></p-button>
+
+        </div>
+        <div class="ui-toolbar-group-right">
+            <p-button style="float:right" label="Salvar"  [disabled]="false" *ngIf="mostrarBotaoSalvar != true " (click)="salvarFrequencias()" icon="fa fa-save"></p-button>
+            <i class="fa fa-bars ui-toolbar-separator" ></i>
+        </div>
         <div class="ui-toolbar-group-right">
             <p-button style="float:right" label="Novo" (click)="abrirModalCadastro(true)" icon="fa fa-plus"></p-button>
-            <i class="fa fa-bars ui-toolbar-separator"></i>
-        </div>
-        <div class="ui-toolbar-group-right">
-            <p-button style="float:right" label="Salvar" (click)="salvar()" icon="fa fa-save"></p-button>
-            <i class="fa fa-bars ui-toolbar-separator"></i>
-        </div>
-        <div class="ui-toolbar-group-right">
-            <p-button style="float:right" label="SalvarF" (click)="salvarFrequencia()" icon="fa fa-save"></p-button>
             <i class="fa fa-bars ui-toolbar-separator"></i>
         </div>
         <div class="ui-toolbar-group-right">
